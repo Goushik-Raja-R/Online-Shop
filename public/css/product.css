@@ -1,0 +1,42 @@
+ .product-form{
+        width: 20rem;
+        max-width: 90%;
+        margin: auto;
+      }
+
+      .form-control{
+        margin: 1rem 0;
+      }
+
+      .lablestyle{
+        font-weight: bold;
+        color: #A67B5B;
+      }
+
+      .form-control lable,
+      .form-control input{
+        display: block;
+        width: 100%;
+      }
+
+      .form-control input{
+        border: 3px solid #A67B5B;
+        font: inherit;
+        border-radius: 4px;
+      }
+
+      button{
+        font:inherit;
+        border: 3px solid #A67B5B;
+        color:#A67B5B;
+        background: white;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      
+      button:hover,
+      button:active{
+        background-color:#A67B5B;
+        color: white;
+      }
