@@ -3,8 +3,10 @@ const bodyparser = require('body-parser')
 const path = require('path')
 // const handlebarshbs = require('express-handlebars');
 
-const admindata = require('./Routes/admin');
-const shoproutes = require('./Routes/shop');
+const errorController = require('./controllers/error')
+
+const adminRoutes = require('./Routes/admin');
+const shopRoutes = require('./Routes/shop');
 
 const app = express();
 
@@ -15,13 +17,10 @@ app.set('views','views');
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use('/admin',admindata.routes);
-app.use(shoproutes);
+app.use('/admin',adminRoutes);
+app.use(shopRoutes);
 
-app.use((req,res,next)=>{
-    // res.sendFile(path.join(__dirname,'./','views','404.html')) --> direct to the 404.html file
-    res.status(404).render('404',{PageTitle:'Page Not Found',layout: false}); //direct to the 404.pug file
-});
+app.use(errorController.get404Page);
 
 const port = 3000;
 
